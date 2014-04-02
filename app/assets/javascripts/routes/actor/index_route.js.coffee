@@ -1,3 +1,3 @@
 #=require '../actor/base_route'
 
-EmberApp.ActorIndexRoute = EmberApp.ActorBaseRoute.extend({})
+EmberApp.InfoIndexRoute = EmberApp.ActorBaseRoute.extend({})
