@@ -1,11 +1,32 @@
 EmberApp.MovieController = Ember.ObjectController.extend
-  actions:
-    isEditing: false
+  isEditing: false
 
-    # Note: Only put button actions in "actions" section. Don't put computed
-    # properties or Observers in this section, but on the same indent level
-    # as 'actions'.
+  editName: (->
+    @get("name")
+  ).property("model.name")
+
+  editYear: (->
+    @get("year")
+  ).property("model.year")
+
+  editDescription: (->
+    @get("description")
+  ).property("model.description")
+
+  actions:
     edit: ->
       @set('isEditing', true)
+
+    save: ->
+      @set('isEditing', false)
+      @set('name', @get("editName"))
+      @set('year', @get("editYear"))
+      @set('description', @get("editDescription"))
+      @get('model').save()
+
     cancel: ->
       @set('isEditing', false)
+      @set('editName', @get("name"))
+      @set('editYear', @get("year"))
+      @set('editDescription', @get("description"))
+

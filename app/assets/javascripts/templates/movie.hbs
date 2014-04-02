@@ -7,7 +7,12 @@
   {{/if}}
 </div>
 <div>
-  <h2>{{name}} ({{year}})</h2>
-  <div>{{description}}</div>
+  {{#if isEditing}}
+    <div>{{input type="text" value=editName}} {{input type="text" value=editYear}}</div>
+    <div>{{textarea value=editDescription cols="100" rows="10"}}</div>
+  {{else}}
+    <h2>{{name}} ({{year}})</h2>
+    <div>{{description}}</div>
+  {{/if}}
   {{outlet}}
 </div>
